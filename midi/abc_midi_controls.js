@@ -94,6 +94,7 @@ if (!window.ABCJS.midi)
 
 	// The default location for the sound font files. Simply set this to a different value if the files are served in a different place.
 	window.ABCJS.midi.soundfontUrl = "/soundfont/";
+	window.ABCJS.midi.instruments = "";
 
 	function hasClass(element, cls) {
 		if (!element)
@@ -172,7 +173,8 @@ if (!window.ABCJS.midi)
 		if (!midiJsInitialized) {
 			MIDI.setup({
 				debug: true,
-				soundfontUrl: window.ABCJS.midi.soundfontUrl
+				soundfontUrl: window.ABCJS.midi.soundfontUrl,
+				instruments: window.ABCJS.midi.instruments
 			}).then(function() {
 				midiJsInitialized = true;
 				afterSetup(timeWarp, data, onSuccess);
